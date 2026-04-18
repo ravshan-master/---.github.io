@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Равшан Тазиев — Электрика и сантехника | Бишкек</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d0f14; --bg2: #13161d;
+      --accent: #f5a623; --accent2: #e8891a;
+      --text: #f0f0f0; --muted: #8a8f9e;
+      --border: #252a35; --card: #161b24;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Manrope', sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 60px;
+      background: rgba(13,15,20,0.92); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 2px; color: var(--accent); text-decoration: none; line-height: 1.1; }
+    .nav-logo span { display: block; font-size: 10px; letter-spacing: 3px; color: var(--muted); font-family: 'Manrope', sans-serif; font-weight: 500; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { background: var(--accent); color: #0d0f14; padding: 9px 22px; border-radius: 3px; font-weight: 700; font-size: 12px; text-decoration: none; letter-spacing: 0.5px; text-transform: uppercase; transition: background 0.2s, transform 0.15s; }
+    .nav-cta:hover { background: var(--accent2); transform: translateY(-1px); }
+
+    /* HERO */
+    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 140px 60px 80px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -300px; right: -300px; width: 900px; height: 900px; background: radial-gradient(circle, rgba(245,166,35,0.07) 0%, transparent 65%); pointer-events: none; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.25); color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 7px 16px; border-radius: 2px; margin-bottom: 32px; width: fit-content; animation: fadeUp 0.7s ease both; }
+    .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(52px, 9vw, 118px); line-height: 0.93; letter-spacing: 1px; margin-bottom: 12px; animation: fadeUp 0.7s 0.1s ease both; }
+    .hero h1 .accent { color: var(--accent); }
+    .hero-sub { font-family: 'Bebas Neue', sans-serif; font-size: clamp(18px, 3vw, 36px); color: var(--muted); letter-spacing: 4px; margin-bottom: 36px; animation: fadeUp 0.7s 0.2s ease both; }
+    .hero-desc { max-width: 560px; color: var(--muted); font-size: 16px; line-height: 1.9; margin-bottom: 48px; font-weight: 300; animation: fadeUp 0.7s 0.3s ease both; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; animation: fadeUp 0.7s 0.4s ease both; }
+    .btn-primary { background: var(--accent); color: #0d0f14; padding: 15px 36px; border-radius: 3px; font-weight: 700; font-size: 14px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); }
+    .btn-secondary { border: 1px solid var(--border); color: var(--text); padding: 15px 36px; border-radius: 3px; font-weight: 600; font-size: 14px; text-decoration: none; transition: border-color 0.2s, color 0.2s, transform 0.15s; }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .hero-stats { display: flex; gap: 56px; margin-top: 72px; padding-top: 40px; border-top: 1px solid var(--border); animation: fadeUp 0.7s 0.5s ease both; flex-wrap: wrap; }
+    .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--accent); line-height: 1; }
+    .stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+    /* COMMON */
+    section { padding: 100px 60px; }
+    .section-tag { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 5vw, 62px); letter-spacing: 2px; line-height: 1; margin-bottom: 16px; }
+    .section-desc { color: var(--muted); font-size: 16px; max-width: 520px; line-height: 1.85; font-weight: 300; }
+    .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; gap: 40px; flex-wrap: wrap; }
+
+    /* SERVICES */
+    .services { background: var(--bg2); }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .service-card { background: var(--card); padding: 48px 36px; position: relative; overflow: hidden; transition: background 0.3s; }
+    .service-card:hover { background: #1c2130; }
+    .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--accent); transition: height 0.4s ease; }
+    .service-card:hover::before { height: 100%; }
+    .service-icon { font-size: 36px; margin-bottom: 20px; }
+    .service-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 1px; margin-bottom: 12px; }
+    .service-card p { color: var(--muted); font-size: 14px; line-height: 1.85; font-weight: 300; margin-bottom: 22px; }
+    .service-list { list-style: none; }
+    .service-list li { color: var(--muted); font-size: 13px; padding: 7px 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 10px; }
+    .service-list li::before { content: '→'; color: var(--accent); font-size: 12px; flex-shrink: 0; margin-top: 2px; }
+
+    /* PROCESS */
+    .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; }
+    .step-card { background: var(--card); padding: 38px 28px; transition: background 0.3s; }
+    .step-card:hover { background: #1c2130; }
+    .step-num { font-family: 'Bebas Neue', sans-serif; font-size: 68px; color: rgba(245,166,35,0.12); line-height: 1; margin-bottom: 4px; }
+    .step-badge { display: inline-block; background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.2); color: var(--accent); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; margin-bottom: 14px; }
+    .step-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+    .step-card p { color: var(--muted); font-size: 13px; line-height: 1.8; font-weight: 300; }
+
+    /* WHY */
+    .why { background: var(--bg2); }
+    .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 48px; }
+    .why-item { background: var(--card); padding: 40px 28px; transition: background 0.3s; }
+    .why-item:hover { background: #1c2130; }
+    .why-num { font-family: 'Bebas Neue', sans-serif; font-size: 64px; color: rgba(245,166,35,0.12); line-height: 1; margin-bottom: 8px; }
+    .why-item h4 { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+    .why-item p { color: var(--muted); font-size: 13px; line-height: 1.8; font-weight: 300; }
+
+    /* CONTACT */
+    .contact-section { background: linear-gradient(135deg, #13161d 0%, #1a1f2e 100%); border-top: 1px solid var(--border); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .contact-left .section-title { margin-bottom: 14px; }
+    .contact-left p { color: var(--muted); font-size: 16px; line-height: 1.85; font-weight: 300; max-width: 440px; }
+    .contact-right { display: flex; flex-direction: column; gap: 14px; }
+    .master-card { padding: 26px 28px; background: rgba(245,166,35,0.07); border: 1px solid rgba(245,166,35,0.2); border-radius: 4px; }
+    .master-name { font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: 1px; color: var(--accent); }
+    .master-role { color: var(--muted); font-size: 13px; margin-top: 4px; }
+    .master-geo { color: var(--muted); font-size: 12px; margin-top: 8px; }
+    .contact-btn { display: flex; align-items: center; gap: 18px; padding: 20px 26px; background: var(--card); border: 1px solid var(--border); border-radius: 4px; text-decoration: none; color: var(--text); font-weight: 600; transition: border-color 0.2s, transform 0.15s, background 0.2s; }
+    .contact-btn:hover { border-color: var(--accent); transform: translateX(5px); background: #1c2130; }
+    .contact-btn .c-icon { font-size: 26px; flex-shrink: 0; }
+    .c-label { font-size: 11px; color: var(--muted); font-weight: 400; letter-spacing: 1px; text-transform: uppercase; }
+    .c-val { font-size: 16px; font-weight: 700; margin-top: 2px; }
+
+    /* FOOTER */
+    footer { padding: 48px 60px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); flex-wrap: wrap; gap: 24px; }
+    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 2px; color: var(--accent); }
+    .footer-copy { color: var(--muted); font-size: 12px; margin-top: 4px; }
+    .footer-links { display: flex; gap: 28px; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--accent); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 1100px) {
+      .process-steps { grid-template-columns: repeat(3, 1fr); }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 14px 24px; }
+      .nav-links { display: none; }
+      .hero { padding: 110px 24px 60px; }
+      .hero-stats { gap: 24px; }
+      section { padding: 72px 24px; }
+      footer { padding: 36px 24px; flex-direction: column; align-items: flex-start; }
+      .process-steps { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    РАВШАН ТАЗИЕВ
+    <span>Электрика · Сантехника · Бишкек</span>
+  </a>
+  <div class="nav-links">
+    <a href="#services">Услуги</a>
+    <a href="#process">Процесс</a>
+    <a href="#why">Преимущества</a>
+    <a href="#contact">Контакты</a>
+  </div>
+  <a href="https://wa.me/996559473020" class="nav-cta" target="_blank">Написать в WhatsApp</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">📍 Бишкек и пригород · Выезд в день обращения</div>
+  <h1>РАВШАН<br><span class="accent">ТАЗИЕВ</span></h1>
+  <div class="hero-sub">ЭЛЕКТРИКА И САНТЕХНИКА</div>
+  <p class="hero-desc">
+    Инженерное оснащение квартир и частных домов. Полный спектр монтажных услуг в новостройках и частном секторе Бишкека. Работаем от черновой разводки до финального запуска. Надёжность на долгие годы вашего спокойствия.
+  </p>
+  <div class="hero-btns">
+    <a href="https://wa.me/996559473020" class="btn-primary" target="_blank">📱 Написать в WhatsApp</a>
+    <a href="tel:+996559473020" class="btn-secondary">📞 Позвонить</a>
+  </div>
+  <div class="hero-stats">
+    <div><div class="stat-num">20+</div><div class="stat-label">лет стажа</div></div>
+    <div><div class="stat-num">24/7</div><div class="stat-label">на связи</div></div>
+    <div><div class="stat-num">1 год</div><div class="stat-label">гарантия на работы</div></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-header">
+    <div>
+      <div class="section-tag">Что мы делаем</div>
+      <h2 class="section-title">НАШИ УСЛУГИ</h2>
+      <p class="section-desc">Полный цикл инженерного оснащения — от чернового монтажа до финальной сдачи объекта</p>
+    </div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">⚡</div>
+      <h3>ЭЛЕКТРОМОНТАЖНЫЕ РАБОТЫ</h3>
+      <p>Профессиональный монтаж электрических систем любой сложности в квартирах, домах и коммерческих объектах.</p>
+      <ul class="service-list">
+        <li>Монтаж щитов и автоматики</li>
+        <li>Защита от скачков напряжения</li>
+        <li>Разводка под бытовую технику</li>
+        <li>Прокладка кабелей (штробление без пыли)</li>
+        <li>Установка розеток и светильников</li>
+        <li>Проверка линий под нагрузкой</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔧</div>
+      <h3>САНТЕХНИЧЕСКИЕ УСЛУГИ</h3>
+      <p>Профессиональный монтаж систем водоснабжения, канализации и фильтрации под ключ.</p>
+      <ul class="service-list">
+        <li>Монтаж водопровода и канализации</li>
+        <li>Системы фильтрации воды</li>
+        <li>Коллекторные узлы</li>
+        <li>Опрессовка системы</li>
+        <li>Установка сантехники и смесителей</li>
+        <li>Фотофиксация скрытых трасс</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📦</div>
+      <h3>СНАБЖЕНИЕ И КОМПЛЕКТАЦИЯ</h3>
+      <p>Если у вас нет времени на закупку — берём это на себя. Предлагаем варианты под ваш бюджет, но вы принимаете окончательное решение.</p>
+      <ul class="service-list">
+        <li>Подбор материалов под бюджет</li>
+        <li>Закупка и доставка на объект</li>
+        <li>Гарантия оригинальной продукции</li>
+        <li>Полная отчётность по чекам</li>
+        <li>Без скрытых наценок</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-header">
+    <div>
+      <div class="section-tag">Как мы работаем</div>
+      <h2 class="section-title">ПРОЦЕСС ОТ А ДО Я</h2>
+      <p class="section-desc">Прозрачный процесс без сюрпризов — от первого звонка до сдачи объекта</p>
+    </div>
+  </div>
+  <div class="process-steps">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <div class="step-badge">Старт</div>
+      <h4>Технический план</h4>
+      <p>Работаем строго по проекту вашего дизайнера или помогаем грамотно расставить точки, опираясь на ваши предпочтения и наш опыт.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <div class="step-badge">Согласование</div>
+      <h4>Материалы и смета</h4>
+      <p>Подбор материалов под ваш выбор и бюджет. Утверждение фиксированной стоимости работ — цена не меняется в процессе.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <div class="step-badge">Монтаж</div>
+      <h4>Черновой монтаж</h4>
+      <p>Штробление без пыли (с пылесосом), прокладка кабелей и труб, монтаж силовых и водопроводных узлов.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">04</div>
+      <div class="step-badge">Проверка</div>
+      <h4>Контроль качества</h4>
+      <p>Опрессовка системы и проверка линий под нагрузкой. Фотофиксация всех скрытых трасс — полная документация.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">05</div>
+      <div class="step-badge">Финал</div>
+      <h4>Чистовой монтаж</h4>
+      <p>Установка розеток, светильников и сантехники после завершения отделочных работ. Объект готов.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why" id="why">
+  <div class="section-tag">Почему выбирают нас</div>
+  <h2 class="section-title">НАШИ ПРЕИМУЩЕСТВА</h2>
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-num">01</div>
+      <h4>Работа по проекту</h4>
+      <p>Строго следуем техническому плану. Если проекта нет — помогаем его грамотно составить под ваши задачи.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">02</div>
+      <h4>Фиксированная цена</h4>
+      <p>Стоимость утверждается до начала монтажа и не меняется. Никаких дополнительных счетов в конце.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">03</div>
+      <h4>Чисто и аккуратно</h4>
+      <p>Штробление только с пылесосом. Фотофиксация всех скрытых трасс. Убираем за собой по завершении.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">04</div>
+      <h4>Полная отчётность</h4>
+      <p>При закупке материалов — чеки на руки. Только оригинальная продукция. Прозрачность на каждом этапе.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-grid">
+    <div class="contact-left">
+      <div class="section-tag">Свяжитесь с нами</div>
+      <h2 class="section-title">НАЧНЁМ<br>ВАШИ РАБОТЫ</h2>
+      <p>Профессиональный монтаж инженерных систем в Бишкеке и пригороде. Опишите задачу — ответим быстро и назовём стоимость ещё до выезда.</p>
+    </div>
+    <div class="contact-right">
+      <div class="master-card">
+        <div class="master-name">РАВШАН ТАЗИЕВ</div>
+        <div class="master-role">Мастер · Электрика и сантехника</div>
+        <div class="master-geo">📍 Бишкек и пригород</div>
+      </div>
+      <a href="https://wa.me/996559473020" class="contact-btn" target="_blank">
+        <div class="c-icon">💬</div>
+        <div><div class="c-label">Написать в</div><div class="c-val">WhatsApp</div></div>
+      </a>
+      <a href="tel:+996559473020" class="contact-btn">
+        <div class="c-icon">📞</div>
+        <div><div class="c-label">Позвонить</div><div class="c-val">+996 559 473 020</div></div>
+      </a>
+      <a href="https://taplink.cc/ravshan_master" class="contact-btn" target="_blank">
+        <div class="c-icon">🗂️</div>
+        <div><div class="c-label">Портфолио работ</div><div class="c-val">Смотреть проекты →</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">РАВШАН ТАЗИЕВ</div>
+    <div class="footer-copy">Электрика и сантехника · Бишкек · © 2025</div>
+  </div>
+  <div class="footer-links">
+    <a href="#services">Услуги</a>
+    <a href="#process">Процесс</a>
+    <a href="#why">Преимущества</a>
+    <a href="#contact">Контакты</a>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.service-card, .step-card, .why-item').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(22px)';
+    el.style.transition = `opacity 0.5s ${i*0.06}s ease, transform 0.5s ${i*0.06}s ease`;
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
